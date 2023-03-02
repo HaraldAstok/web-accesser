@@ -1,5 +1,6 @@
 # WEB PAGE ACCESSIBILITY CHECKER
 
+Service that runs a cron job that checks if given urls respond and saves the data. 
 ## Requirements
 
 - Node 16 (follow `.nvmrc`, or just run `nvm use`)
