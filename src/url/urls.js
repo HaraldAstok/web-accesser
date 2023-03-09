@@ -7,7 +7,6 @@ let urls = [
 async function removeUrl(url) {
 	const elemIndex = urls.indexOf(url);
 	if (elemIndex >= 0) {
-		console.log('elemIndex ->', elemIndex);
 		urls.splice(elemIndex, 1);
 	}
 

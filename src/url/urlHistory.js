@@ -31,11 +31,17 @@ async function assessHistory(urls) {
 	const result = {};
 	for (const url of urls) {
 		const history = urlHistory[url];
-		if (history.length < HISTORY_LENGTH) {
-			result[url] = { message: 'Not enough data' };
+
+		if (history === undefined) {
+			result[url] = { message: 'Url does not exist in our db' };
 		} else {
-			const average = history.reduce((acc, cur) => acc + cur) / history.length;
-			result[url] = { averageUpTime: average };
+			if (history.length < HISTORY_LENGTH) {
+				result[url] = { message: 'Not enough data' };
+			} else {
+				const average =
+					history.reduce((acc, cur) => acc + cur) / history.length;
+				result[url] = { averageUpTime: average };
+			}
 		}
 	}
 	return result;
